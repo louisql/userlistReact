@@ -2,6 +2,8 @@ import React from "react";
 
 import EachUser from "../EachUser/EachUser";
 
+import './ListUser.css';
+
 const ListUser = (props) =>{
 
 

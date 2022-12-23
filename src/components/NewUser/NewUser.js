@@ -26,13 +26,14 @@ const NewUser = (props) => {
       setErrorMessage("Please enter a name.");
       setModalIsOpen(true);
       return;
-    }
-
-    if (age.trim().length === 0 || age < 0) {
+    } else if (age.trim().length === 0 || age < 0) {
       setErrorMessage("Please enter a non-negative age.");
       setModalIsOpen(true);
       return;
     }
+
+    setName("");
+    setAge("");
 
     props.onAddUser(name, age);
   };
@@ -41,10 +42,10 @@ const NewUser = (props) => {
   return (
     <div>
       <form onSubmit={formSubmitHandler}>
-        <label>username</label>
-        <input type="text" onChange={nameInputChangeHandler} />
+        <label>Username</label>
+        <input type="text" onChange={nameInputChangeHandler} value={name}/>
         <label>Age (Years)</label>
-        <input type="number" onChange={ageInputChangeHandler} />
+        <input type="number" onChange={ageInputChangeHandler} value={age}/>
         <Button type="submit">Add user</Button>
       </form>
 
